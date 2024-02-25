@@ -1,48 +1,49 @@
 ﻿using Castle.DynamicProxy;
+using CmdLineTools;
 
 namespace Interception
 {
-    // TODO CONTINUE HERE. NOT USED YET
     public class Authorization : IInterceptor
     {
+        public UserLevel Level { get; private set; } = UserLevel.Standard;
+        private ConsoleColor Color { get; } = ConsoleColor.Red;
+
         public Authorization()
         {
             // inject a user level provider here
             Level = UserLevel.Expert;
         }
 
-        public UserLevel Level { get; private set; }
-
         public void Intercept(IInvocation invocation)
         {
-            if (invocation.Method.CustomAttributes.Any(x => x.AttributeType == typeof(AdvancedLevelAttribute)) 
-                && Level >= UserLevel.Advanced)
+            AuthorizationAttribute? authAtt =
+            invocation.GetConcreteMethodInvocationTarget()
+                .GetCustomAttributes(typeof(AuthorizationAttribute), true)
+                .FirstOrDefault() as AuthorizationAttribute;
+            if (authAtt is null)
             {
-                Console.WriteLine("it's OK");
+                using(new ColorSwitcher(Color)) { 
+                    Console.WriteLine("No authorization attribute defined");
+                }
                 invocation.Proceed();
                 return;
             }
-            if (invocation.Method.CustomAttributes.Any(x => x.AttributeType == typeof(ExpertLevelAttribute)) 
-                && Level >= UserLevel.Expert)
-            {
 
-                Console.WriteLine("it's OK");
+            if (Level >= authAtt.Level)
+            {
+                using (new ColorSwitcher(Color))
+                {
+                    Console.WriteLine($"authorized with level: {Level}");
+                }
                 invocation.Proceed();
                 return;
             }
+
+            using (new ColorSwitcher(Color))
+            {
+                Console.WriteLine($"not authorized with level: {Level}");
+            }
+            return;
         }
-    }
-
-    public class AdvancedLevelAttribute : Attribute
-    {
-    }
-    public class ExpertLevelAttribute : Attribute
-    {
-    }
-    public enum UserLevel
-    {
-        Standard,
-        Advanced,
-        Expert
     }
 }

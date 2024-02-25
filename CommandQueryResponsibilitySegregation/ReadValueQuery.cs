@@ -9,7 +9,7 @@ namespace CommandQueryResponsibilitySegregation
         public void Dispose()
         {
             // unregister events
-            Console.WriteLine($"Dispose {nameof(SetValueCommand)}");
+            Console.WriteLine($"Dispose {nameof(ReadValueQuery)}");
         }
 
         public string GetValue()

@@ -12,4 +12,8 @@
     <PackageReference Include="Castle.Core" Version="5.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CmdLineTools\CmdLineTools.csproj" />
+  </ItemGroup>
+
 </Project>

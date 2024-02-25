@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using CommandQueryResponsibilitySegregation;
+using Factory;
 using Interception;
 
 namespace Demo
@@ -16,8 +17,11 @@ namespace Demo
         private IContainer AutofacConfig()
         {
             var builder = new ContainerBuilder();
+            // Interceptor
             builder.RegisterType<Logger>();
+            builder.RegisterType<Authorization>();
 
+            // CommandQueryResponsibilitySegregation
             builder.RegisterType<SetValueCommand>()
                 .As<ISetValueCommand>()
                 .EnableInterfaceInterceptors();
@@ -25,6 +29,11 @@ namespace Demo
             builder.RegisterType<ReadValueQuery>()
                 .As<IReadValueQuery>()
                 .EnableInterfaceInterceptors();
+
+            // Factory in .ctor is automatically registered (hence the name "AutoFac")
+            builder.RegisterType<Item>();
+            builder.RegisterType<Items>().As<IItems>();
+            
 
             return builder.Build();
         }

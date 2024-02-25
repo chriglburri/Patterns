@@ -4,12 +4,12 @@ using Interception;
 namespace CommandQueryResponsibilitySegregation
 {
     [Intercept(typeof(Logger))]
+    [Intercept(typeof(Authorization))]
     public class SetValueCommand : ISetValueCommand, IDisposable
     {
+
         public bool CanExecute()
         {
-            // Check business logic if command can be executes.
-            // Do not check user authorization
             Console.WriteLine("Can this command be executed.");
             return true;
         }
@@ -20,6 +20,7 @@ namespace CommandQueryResponsibilitySegregation
             Console.WriteLine($"Dispose {nameof(SetValueCommand)}");
         }
 
+        [Authorization(UserLevel.Expert)]
         public void SetValue(string value)
         {
             Console.WriteLine("Write the value to device.");

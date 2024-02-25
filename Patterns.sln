@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interception", "Interception\Interception.csproj", "{4799B755-5F70-474C-9B19-4E851A45D844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interception", "Interception\Interception.csproj", "{4799B755-5F70-474C-9B19-4E851A45D844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{E0C438F7-0A7A-4F99-AC6F-6A1E5BEA9172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{E0C438F7-0A7A-4F99-AC6F-6A1E5BEA9172}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandQueryResponsibilitySegregation", "CommandQueryResponsibilitySegregation\CommandQueryResponsibilitySegregation.csproj", "{2539D161-4C07-45DB-BA15-83C6F754C09D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandQueryResponsibilitySegregation", "CommandQueryResponsibilitySegregation\CommandQueryResponsibilitySegregation.csproj", "{2539D161-4C07-45DB-BA15-83C6F754C09D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{6D64C046-F932-49B2-8F44-062E485C78BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmdLineTools", "CmdLineTools\CmdLineTools.csproj", "{7E6AC9F3-B2D7-43C8-9CA6-6BE560D462DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{2539D161-4C07-45DB-BA15-83C6F754C09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2539D161-4C07-45DB-BA15-83C6F754C09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2539D161-4C07-45DB-BA15-83C6F754C09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D64C046-F932-49B2-8F44-062E485C78BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D64C046-F932-49B2-8F44-062E485C78BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D64C046-F932-49B2-8F44-062E485C78BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D64C046-F932-49B2-8F44-062E485C78BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6AC9F3-B2D7-43C8-9CA6-6BE560D462DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6AC9F3-B2D7-43C8-9CA6-6BE560D462DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6AC9F3-B2D7-43C8-9CA6-6BE560D462DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6AC9F3-B2D7-43C8-9CA6-6BE560D462DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
